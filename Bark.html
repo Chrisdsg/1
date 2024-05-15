@@ -3,10 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link href="../Content/bootstrap.css" rel="stylesheet" />
-
     <title>Dog-Barking Form</title>
 </head>
 <body>
@@ -32,3 +30,132 @@
                         <label for="tbCompAddress">Address:</label>
                         <input type="text" name="compAddress" id="tbCompAddress" placeholder="Your Address" required maxlength="100" class="form-control" />
                     </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label for="tbHomePhone">Home</label>
+                            <input type="text" name="homePhone" id="tbHomePhone" class="form-control" />
+                        </div>
+                        <div class="col">
+                            <label for="tbBusinessPhone">Business</label>
+                            <input type="text" name="businessPhone" id="tbBusinessPhone" class="form-control" />
+                        </div>
+                        <div class="col">
+                            <label for="tbMobilePhone">Mobile</label>
+                            <input type="text" name="mobilePhone" id="tbMobilePhone" class="form-control" />
+                        </div>
+                    </div>
+
+                    <h5>Offending Dog's Detail</h5>
+                    <div class="mb-3">
+                        <label for="tbDogAddress">Address of offending dog/s:</label>
+                        <input type="text" name="dogAddress" id="tbDogAddress" placeholder="Dog's Address Detail" required maxlength="100" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="tbDogDescription">Description of dog/s:</label>
+                        <input type="text" name="dogDescription" id="tbDogDescription" placeholder="Colour and breed of dog/s" required maxlength="100" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Have you seen the dog's barking?</label>
+                        <div>
+                            <input type="radio" name="seenBarking" value="Yes" required> Yes
+                            <input type="radio" name="seenBarking" value="No"> No
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Is there more than one dog on the property?</label>
+                        <div>
+                            <input type="radio" name="moreThanOneDog" value="Yes" required> Yes
+                            <input type="radio" name="moreThanOneDog" value="No"> No
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>If so, do they both bark?</label>
+                        <div>
+                            <input type="radio" name="bothBark" value="Yes" required> Yes
+                            <input type="radio" name="bothBark" value="No"> No
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Have you spoken to the neighbours about this problem?</label>
+                        <div>
+                            <input type="radio" name="spokenToNeighbours" value="Yes" required> Yes
+                            <input type="radio" name="spokenToNeighbours" value="No"> No
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Are you prepared to have the matter mediated?</label>
+                        <div>
+                            <input type="radio" name="preparedMediated" value="Yes" required> Yes
+                            <input type="radio" name="preparedMediated" value="No"> No
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Are you prepared to go to court?</label>
+                        <div>
+                            <input type="radio" name="preparedCourt" value="Yes" required> Yes
+                            <input type="radio" name="preparedCourt" value="No"> No
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tbBarkingDetails">Tell us some more about the barking, i.e. Times of the day, situations that may set the dog/s off</label>
+                        <textarea name="barkingDetails" id="tbBarkingDetails" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <h5>Barking Dog Diary</h5>
+                    <div id="barkingDogDiary">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="diaryDate">Date</label>
+                                <input type="date" name="diaryDate" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="timeStart">Time Start</label>
+                                <input type="time" name="timeStart" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="timeEnd">Time End</label>
+                                <input type="time" name="timeEnd" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="barks">Barks</label>
+                                <input type="number" name="barks" class="form-control" />
+                            </div>
+                            <div class="col">
+                                <label for="reason">Reason</label>
+                                <input type="text" name="reason" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addRow()">Add Row</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        function addRow() {
+            var diary = document.getElementById("barkingDogDiary");
+            var row = document.createElement("div");
+            row.className = "row mb-3";
+            row.innerHTML = `
+                <div class="col">
+                    <input type="date" name="diaryDate" class="form-control" />
+                </div>
+                <div class="col">
+                    <input type="time" name="timeStart" class="form-control" />
+                </div>
+                <div class="col">
+                    <input type="time" name="timeEnd" class="form-control" />
+                </div>
+                <div class="col">
+                    <input type="number" name="barks" class="form-control" />
+                </div>
+                <div class="col">
+                    <input type="text" name="reason" class="form-control" />
+                </div>`;
+            diary.appendChild(row);
+        }
+    </script>
+</body>
+</html>
